@@ -35,3 +35,26 @@ for (let button of buttons) {
   });
 }
 
+
+//৭. একদম নিচে একটা LET'S STAY IN TOUCH নামে একটা জিনিস আছে। সেখানে তুমি submit বাটনটা disable করে ফেলবে। তারপর কেউ যদি উপরে input ফিল্ডে যদি একজাক্টলি email শব্দটা লিখে। তাহলে বাটন একটিভ হবে। আর যদি অন্য কিছু লিখে তাহলে বাটনটা একটিভ হবে না। 
+
+
+const submit = document.getElementById("submit");
+const input = document.getElementById("exampleInputEmail1");
+submit.setAttribute("disabled", true);
+input.addEventListener("keyup", function (event) {
+  let inputText = event.target.value;
+  if (
+    inputText.includes("@") &&
+    inputText.endsWith(".com") &&
+    ["yahoo", "gmail", "aol", "outlook"].some(function (address) {
+      return inputText.includes(address);
+    })
+  ) 
+  {
+    submit.removeAttribute("disabled");
+  } 
+  else {
+    submit.setAttribute("disabled", true);
+  }
+});
