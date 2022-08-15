@@ -58,3 +58,28 @@ input.addEventListener("keyup", function (event) {
     submit.setAttribute("disabled", true);
   }
 });
+
+
+//৮. (অপশনাল) একটা মজার চ্যালেঞ্জ। কোন একটা ইমেজ এর উপরে mouseenter করলে সেই ইমেজটা চেইঞ্জ হয়ে যাবে। একটু গুগলে সার্চ দিয়ে দেখো। জিনিসটা কিভাবে করা যেতে পারে। 
+
+const cardImg = document.getElementsByClassName("card-img-top",);
+for (let img of cardImg) {
+  img.addEventListener("mouseenter", function () {
+    let father = img.parentElement;
+    father.removeChild(img);
+    let newImg = document.createElement("img");
+    newImg.setAttribute(
+      "src",
+      "https://cdn.dribbble.com/users/1233499/screenshots/3855329/ecommerce-illustration2-3.gif"
+    );
+    father.insertBefore(newImg, father.firstChild);
+  });
+}
+
+
+//৯. (অপশনাল) নিচের যে LET'S STAY IN TOUCH আছে সেখানে কোন খালি জায়গায় ডাবল ক্লিক করলে ঐটার পিছনের কালার চেইঞ্জ হয়ে যাবে। 
+
+document.getElementById("subscribe").addEventListener("dblclick", function (event) {
+    let randomColor = ["red", "blue", "coral", "green", "black", "yellow", "purple", "magenta", "wheat",];
+    event.target.style.backgroundColor = randomColor[Math.round(Math.random() * randomColor.length)];
+  });
