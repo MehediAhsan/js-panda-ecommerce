@@ -20,3 +20,18 @@ for(const card of cards){
 function onClick(){
     console.log('button clicked');
 }
+
+
+//৬. এইবার নতুন করে সবগুলা buy now বাটনে এমন একটা ইভেন্ট হ্যান্ডলার যোগ করো। যাতে যেকোন একটা buy now বাটনে চাপ দিলে সেটা ওয়েবসাইট থেকে রিমুভ হয়ে যায়। একটু চিন্তা করে করার চেষ্টা করো। 
+
+
+const buttons = document.getElementsByClassName("panda-btn-warning");
+
+for (let button of buttons) {
+  button.addEventListener("click", function () {
+    button.parentNode.parentNode.parentNode.removeChild(
+      button.parentNode.parentNode
+    );
+  });
+}
+
